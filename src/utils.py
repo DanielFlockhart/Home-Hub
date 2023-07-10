@@ -1,17 +1,18 @@
 import os,sys
 
 def get_directory():
-    """
-    Get directory of the file
-    """
-    return os.path.dirname(os.path.realpath(__file__))  
+    '''
+    Gets the directory of the data folder, relative to position of this file
+    '''
+    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-def get_token(file):
+def get_token():
     """
     Get token from file
     To Keep It Private
     """
-    with open(file,"r") as f:
+    from CONSTANTS import TOKEN_PATH
+    with open(TOKEN_PATH,"r") as f:
         return f.read().strip()
     
 def set_token(file,token):
